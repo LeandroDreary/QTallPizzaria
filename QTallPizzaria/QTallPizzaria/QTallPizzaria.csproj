@@ -291,7 +291,7 @@
     <Content Include="Views\Produto\Details.cshtml" />
     <Content Include="Views\Produto\Edit.cshtml" />
     <Content Include="Views\Produto\Index.cshtml" />
-    <Content Include="Views\EditarPaginas\PaginaInicial.cshtml" />
+    <Content Include="Views\EditarPaginas\Banner.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
