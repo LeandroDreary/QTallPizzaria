@@ -1,0 +1,77 @@
+﻿
+@model IEnumerable<QTallPizzaria.Models.Produto>
+
+@{
+                /**/
+
+                ViewBag.Title = "Index";
+                Layout = "~/Views/Administrador/Layout.cshtml";
+}
+
+<div class="container">
+    <h3 class="my-5 text-dark text-sm-center font-weight-bold">Todos os Produtos</h3>
+    <hr />
+    <p class="btn btn-primary">
+        @Html.ActionLink("Novo Produto", "Create", "produtos", new { @class = "text-white" })
+    </p>
+    @using (Html.BeginForm("Search", "Produto", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="bg-dark p-3">
+            <input type="text" class="form-control col-md-2 float-left mr-3" placeholder="Pesquisar" name="pesquisa" />
+            <input class="float-left btn btn-primary" type="submit" value="Enviar" />
+            <div class="clearfix">...</div>
+        </div>
+    }
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th class="text-center" scope="col">
+                    Nome do Produto
+                </th>
+                <th class="text-center" scope="col">
+                    Preço
+                </th>
+                <th class="text-center" scope="col">
+                    Foto
+                </th>
+                <th class="text-center" scope="col">
+                    Descrição
+                </th>
+                <th class="text-center" scope="col">
+                    Tipo
+                </th>
+                <th class="text-center" scope="col">
+                    Ações
+                </th>
+            </tr>
+        </thead>
+        @{QTallPizzaria.Classes.LimitarString limitar = new QTallPizzaria.Classes.LimitarString();}
+        @foreach (var item in Model)
+        {
+            <tr class="border-bottom border-dark">
+                <td class="text-center align-middle font-weight-bold">
+                    @Html.DisplayFor(modelItem => item.nome)
+                </td>
+                <td class="text-center align-middle">
+                    R$@Html.DisplayFor(modelItem => item.preco)
+                </td>
+                <td class="text-center align-middle">
+                    <img width="200px" src="@Html.DisplayFor(modelItem => item.foto)" />
+                </td>
+                <td class="text-center text-justify">
+                    @limitar.Retorno(item.descricao, 150)
+                </td>
+                <td class="text-center align-middle">
+                    @Html.DisplayFor(modelItem => item.TipoProduto.nomeTipo)
+                </td>
+                <td class="text-center align-middle">
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idProduto }, new { @class = "btn btn-success text-white" })
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.idProduto }, new { @class = "btn btn-warning text-white" })
+                    @Html.ActionLink("Apagar", "Delete", new { id = item.idProduto }, new { @class = "btn btn-danger text-white" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

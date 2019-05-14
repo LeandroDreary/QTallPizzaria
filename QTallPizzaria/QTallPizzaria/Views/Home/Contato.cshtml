@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Contato";
+    ViewBag.HeaderBackground = "../../img/Home/banners/contato.png";
+    Layout = "~/Views/Home/Layout.cshtml";
+    ViewBag.Frase = "Fale conosco";
+}
+<link href="@Url.Content("~/Content/Home/Contato.css")"
+      rel="stylesheet" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 bg-light my-4 card">
+            <h3 class="text-center text-uppercase font-weight-bold pt-4">Contato</h3>
+            <form action="#" class="form-contact" method="post" tabindex="1">
+                <input type="text" class="form-contact-input" name="nome" placeholder="Nome" required />
+                <input type="email" class="form-contact-input" name="email" placeholder="Email" required />
+                <input type="tel" class="form-contact-input" name="tel" placeholder="Telefone" />
+                <textarea class="form-contact-textarea" name="conteudo" placeholder="Deixe uma mensagem" required></textarea>
+                <button type="submit" class="form-contact-button">Enviar</button>
+            </form>
+        </div>
+        <div class="col-md-5">
+            <img class="my-4" width="100%" height="615px" style="object-fit:cover" src="~/img/Home/banners/index.jpg" />
+        </div>
+    </div>
+</div>

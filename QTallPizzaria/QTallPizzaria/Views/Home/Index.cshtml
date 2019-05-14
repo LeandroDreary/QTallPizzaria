@@ -1,0 +1,140 @@
+﻿
+@{
+    ViewBag.Title = "Página Inicial";
+    Layout = "~/Views/Home/Layout.cshtml";
+    ViewBag.Frase = "O melhor pedaço do seu dia!";
+    ViewBag.Telefone = "(14) 3641-4404";
+}
+<link href="@Url.Content("~/Content/Home/index.css")"
+      rel="stylesheet" />
+
+<div class="destaque">
+    <h3 class="text-center font-weight-bold py-4">Destaques</h3>
+    <hr />
+    <div clas="carrosel">
+        <div class="barra-verde">
+            <div class="container">
+                <div class="infoPizza">
+                    <h3 class="nomepizza">Pizza de Calabresa</h3>
+                    <h3 class="preco">POR R$20,00</h3>
+                </div>
+            </div>
+        </div>
+        <svg class="destaqueImage" viewBox="0 0 100 100">
+            <clipPath id="clip-path">
+                <path id="forma" d="M0,0 0,0 40,0 100,65 0,65  z">
+            </clipPath>
+            <image clip-path="url(#clip-path)" xlink:href="@Model.Destaques[0].Foto" alt="Image" height="100" width="100" class="svg__image">
+        </svg>
+        <div class="infoPizzaCel">
+            <h3 class="nomepizza">@Model.Destaques[0].NomeProduto</h3>
+            <h3 class="preco">POR @Model.Destaques[0].preco</h3>
+        </div>
+        <div class="bolas">
+            <div class="bola" id="active" onclick="changeInfo(0,this)"></div>
+            <div class="bola" onclick="changeInfo(1,this)"></div>
+            <div class="bola" onclick="changeInfo(2,this)"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <hr />
+    <div class="bg-light py-5 card">
+        <h3 class="text-center font-weight-bold pb-3">Sugestões</h3>
+        <hr class="mx-5" />
+        <h4 class="text-center">Pizzas</h4>
+        <hr class="mx-5" />
+        <div class="row">
+            @foreach (var item in Model.Pizza)
+            {
+                <div class="col-sm">
+                    <div class="card my-4 mx-auto" style="width: 18rem;">
+                        <img src="@item.Foto" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.NomeProduto</h5>
+                            <p class="card-text">@item.Descricao</p>
+                            <a href="#" class="btn btn-primary">R$ @item.preco</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+
+        <h4 class="text-center">Lanches</h4>
+        <hr class="mx-5" />
+        <div class="row">
+            @foreach (var item in Model.Lanches)
+            {
+                <div class="col-sm">
+                    <div class="card my-4 mx-auto" style="width: 18rem;">
+                        <img src="@item.Foto" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.NomeProduto</h5>
+                            <p class="card-text">@item.Descricao</p>
+                            <a href="#" class="btn btn-primary">R$ @item.preco</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <h4 class="text-center">Bebidas</h4>
+        <hr class="mx-5" />
+        <div class="row">
+            @foreach (var item in Model.Bebidas)
+            {
+                <div class="col-sm">
+                    <div class="card my-4 mx-auto" style="width: 18rem;">
+                        <img src="@item.Foto" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.NomeProduto</h5>
+                            <p class="card-text">@item.Descricao</p>
+                            <a href="#" class="btn btn-primary">R$ @item.preco</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div>
+        <h3 class="text-center font-weight-bold py-4">Localização</h3>
+        <hr />
+        <div class="row bg-success">
+            <div class="col-md pt-3">
+                <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5064.849857892076!2d-48.552333474493885!3d-22.491709174357617!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa53391a65e6c109b!2sQ-tall+Pizzaria!5e0!3m2!1spt-BR!2sin!4v1551035296196" width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+            <div class="col-md">
+                <h4 class="pt-4 text-white">Horários de funcionamento:</h4>
+                <h5 class="text-white-50">Segunda a sabado das 18:00 horas as 00:00</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+        var img = ["@Model.Destaques[0].Foto","@Model.Destaques[1].Foto","@Model.Destaques[2].Foto"];
+        var NomePizza = ["@Model.Destaques[0].NomeProduto", "@Model.Destaques[1].NomeProduto", "@Model.Destaques[2].NomeProduto"];
+        var preco = ["POR R$ @Model.Destaques[0].preco", "POR R$ @Model.Destaques[1].preco", "POR R$ @Model.Destaques[2].preco"];
+
+        function changeInfo(i, isso) {
+            var pizzaNome = document.getElementsByClassName("nomepizza");
+            pizzaNome[0].innerHTML = NomePizza[i];
+            pizzaNome[1].innerHTML = NomePizza[i];
+            document.querySelector(".svg__image").setAttribute("src", img[i]);
+            document.querySelector(".svg__image").setAttribute("xlink:href", img[i]);
+            var pizzaPreco = document.getElementsByClassName("preco");
+            pizzaPreco[0].innerHTML = preco[i];
+            pizzaPreco[1].innerHTML = preco[i];
+            var bolas = document.getElementsByClassName("bola");
+            for (var i = 0; i < bolas.length; i++) {
+                bolas[i].id = "";
+            }
+            isso.id = "active";
+        }
+</script>
+<script src="@Url.Content("~/Scripts/Home/Index.js")">
+</script>

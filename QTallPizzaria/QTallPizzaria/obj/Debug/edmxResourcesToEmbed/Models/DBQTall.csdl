@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBQtallModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="banner">
+    <Key>
+      <PropertyRef Name="idBanner" />
+    </Key>
+    <Property Name="idBanner" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="diretorio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Destaque">
+    <Key>
+      <PropertyRef Name="idDestaque" />
+    </Key>
+    <Property Name="idDestaque" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idProduto" Type="Int32" />
+    <NavigationProperty Name="Produto" Relationship="Self.FK__Destaque__idProd__3C69FB99" FromRole="Destaque" ToRole="Produto" />
+  </EntityType>
+  <EntityType Name="Foto">
+    <Key>
+      <PropertyRef Name="idFoto" />
+    </Key>
+    <Property Name="idFoto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descricao" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Produto">
+    <Key>
+      <PropertyRef Name="idProduto" />
+    </Key>
+    <Property Name="idProduto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="preco" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="descricao" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="foto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idTipo" Type="Int32" />
+    <NavigationProperty Name="Destaque" Relationship="Self.FK__Destaque__idProd__3C69FB99" FromRole="Produto" ToRole="Destaque" />
+    <NavigationProperty Name="TipoProduto" Relationship="Self.FK__Produto__idTipo__398D8EEE" FromRole="Produto" ToRole="TipoProduto" />
+    <NavigationProperty Name="Sugestao" Relationship="Self.FK__Sugestao__idProd__403A8C7D" FromRole="Produto" ToRole="Sugestao" />
+  </EntityType>
+  <EntityType Name="Sugestao">
+    <Key>
+      <PropertyRef Name="idSugestao" />
+    </Key>
+    <Property Name="idSugestao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idTipo" Type="Int32" />
+    <Property Name="idProduto" Type="Int32" />
+    <NavigationProperty Name="Produto" Relationship="Self.FK__Sugestao__idProd__403A8C7D" FromRole="Sugestao" ToRole="Produto" />
+    <NavigationProperty Name="TipoProduto" Relationship="Self.FK__Sugestao__idTipo__3F466844" FromRole="Sugestao" ToRole="TipoProduto" />
+  </EntityType>
+  <EntityType Name="TipoProduto">
+    <Key>
+      <PropertyRef Name="idTipo" />
+    </Key>
+    <Property Name="idTipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomeTipo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Produto" Relationship="Self.FK__Produto__idTipo__398D8EEE" FromRole="TipoProduto" ToRole="Produto" />
+    <NavigationProperty Name="Sugestao" Relationship="Self.FK__Sugestao__idTipo__3F466844" FromRole="TipoProduto" ToRole="Sugestao" />
+  </EntityType>
+  <Association Name="FK__Destaque__idProd__3C69FB99">
+    <End Role="Produto" Type="Self.Produto" Multiplicity="0..1" />
+    <End Role="Destaque" Type="Self.Destaque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produto">
+        <PropertyRef Name="idProduto" />
+      </Principal>
+      <Dependent Role="Destaque">
+        <PropertyRef Name="idProduto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Produto__idTipo__398D8EEE">
+    <End Role="TipoProduto" Type="Self.TipoProduto" Multiplicity="0..1" />
+    <End Role="Produto" Type="Self.Produto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProduto">
+        <PropertyRef Name="idTipo" />
+      </Principal>
+      <Dependent Role="Produto">
+        <PropertyRef Name="idTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sugestao__idProd__403A8C7D">
+    <End Role="Produto" Type="Self.Produto" Multiplicity="0..1" />
+    <End Role="Sugestao" Type="Self.Sugestao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produto">
+        <PropertyRef Name="idProduto" />
+      </Principal>
+      <Dependent Role="Sugestao">
+        <PropertyRef Name="idProduto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sugestao__idTipo__3F466844">
+    <End Role="TipoProduto" Type="Self.TipoProduto" Multiplicity="0..1" />
+    <End Role="Sugestao" Type="Self.Sugestao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProduto">
+        <PropertyRef Name="idTipo" />
+      </Principal>
+      <Dependent Role="Sugestao">
+        <PropertyRef Name="idTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBQtallEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="banner" EntityType="Self.banner" />
+    <EntitySet Name="Destaque" EntityType="Self.Destaque" />
+    <EntitySet Name="Foto" EntityType="Self.Foto" />
+    <EntitySet Name="Produto" EntityType="Self.Produto" />
+    <EntitySet Name="Sugestao" EntityType="Self.Sugestao" />
+    <EntitySet Name="TipoProduto" EntityType="Self.TipoProduto" />
+    <AssociationSet Name="FK__Destaque__idProd__3C69FB99" Association="Self.FK__Destaque__idProd__3C69FB99">
+      <End Role="Produto" EntitySet="Produto" />
+      <End Role="Destaque" EntitySet="Destaque" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Produto__idTipo__398D8EEE" Association="Self.FK__Produto__idTipo__398D8EEE">
+      <End Role="TipoProduto" EntitySet="TipoProduto" />
+      <End Role="Produto" EntitySet="Produto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sugestao__idProd__403A8C7D" Association="Self.FK__Sugestao__idProd__403A8C7D">
+      <End Role="Produto" EntitySet="Produto" />
+      <End Role="Sugestao" EntitySet="Sugestao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sugestao__idTipo__3F466844" Association="Self.FK__Sugestao__idTipo__3F466844">
+      <End Role="TipoProduto" EntitySet="TipoProduto" />
+      <End Role="Sugestao" EntitySet="Sugestao" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

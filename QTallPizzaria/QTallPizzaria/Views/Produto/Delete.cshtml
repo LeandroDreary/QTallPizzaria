@@ -1,0 +1,42 @@
+﻿@model QTallPizzaria.Models.Produto
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Administrador/Layout.cshtml";
+}
+
+<h3 class="alert alert-danger text-center m-4">Tem certeza que deseja apagar este produto?</h3>
+<div class="container">
+    <hr />
+    <div class="card bg-light rounded">
+        <div class="row">
+            <div class="col mx-4 my-4">
+                @Html.Label("Nome do produto:", htmlAttributes: new { @class = "control-label  font-weight-bold" })
+                @Html.DisplayFor(model => model.nome)<br />
+                @Html.Label("Preço:", htmlAttributes: new { @class = "control-label font-weight-bold" })
+
+                @Html.DisplayFor(model => model.preco)<br />
+                @Html.Label("Tipo:", htmlAttributes: new { @class = "control-label font-weight-bold" })
+
+                @Html.DisplayFor(model => model.TipoProduto.nomeTipo)<br />
+                @Html.Label("Descrição:", htmlAttributes: new { @class = "control-label font-weight-bold" })
+                @Html.DisplayFor(model => model.descricao)<br />
+            </div>
+            <div class="col">
+                <img src="@Html.DisplayFor(model => model.foto)" width="100%" />
+
+            </div>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" width="100%" value="Apagar" class="m-4 btn btn-danger" /><br />
+            </div>
+        }
+
+    </div>
+    @Html.ActionLink("Voltar", "Index")
+</div>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBQtallModelStoreContainer" CdmEntityContainer="DBQtallEntities">
+    <EntitySetMapping Name="banner">
+      <EntityTypeMapping TypeName="DBQtallModel.banner">
+        <MappingFragment StoreEntitySet="banner">
+          <ScalarProperty Name="idBanner" ColumnName="idBanner" />
+          <ScalarProperty Name="diretorio" ColumnName="diretorio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Destaque">
+      <EntityTypeMapping TypeName="DBQtallModel.Destaque">
+        <MappingFragment StoreEntitySet="Destaque">
+          <ScalarProperty Name="idDestaque" ColumnName="idDestaque" />
+          <ScalarProperty Name="idProduto" ColumnName="idProduto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Foto">
+      <EntityTypeMapping TypeName="DBQtallModel.Foto">
+        <MappingFragment StoreEntitySet="Foto">
+          <ScalarProperty Name="idFoto" ColumnName="idFoto" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produto">
+      <EntityTypeMapping TypeName="DBQtallModel.Produto">
+        <MappingFragment StoreEntitySet="Produto">
+          <ScalarProperty Name="idProduto" ColumnName="idProduto" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="preco" ColumnName="preco" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="idTipo" ColumnName="idTipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sugestao">
+      <EntityTypeMapping TypeName="DBQtallModel.Sugestao">
+        <MappingFragment StoreEntitySet="Sugestao">
+          <ScalarProperty Name="idSugestao" ColumnName="idSugestao" />
+          <ScalarProperty Name="idTipo" ColumnName="idTipo" />
+          <ScalarProperty Name="idProduto" ColumnName="idProduto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoProduto">
+      <EntityTypeMapping TypeName="DBQtallModel.TipoProduto">
+        <MappingFragment StoreEntitySet="TipoProduto">
+          <ScalarProperty Name="idTipo" ColumnName="idTipo" />
+          <ScalarProperty Name="nomeTipo" ColumnName="nomeTipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

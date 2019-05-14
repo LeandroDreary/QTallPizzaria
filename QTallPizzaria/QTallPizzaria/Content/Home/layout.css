@@ -1,0 +1,197 @@
+﻿@font-face {
+    font-family: Darleston;
+    src: url('../../Fontes/Darleston.otf');
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+#header {
+    width: 100%;
+    height: auto;
+    height: 360px;
+}
+
+    #header img {
+        width: 100%;
+        height: 360px;
+        object-fit: cover;
+        -webkit-filter: brightness(65%);
+        filter: brightness(65%);
+        position: absolute;
+    }
+
+    #header .fraseTema {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        width: 100%;
+        top: 200px;
+        color: #fff;
+        font-weight: 500;
+        text-shadow: 3px 3px 5px black;
+        font-family: Darleston;
+        font-size: 85px;
+    }
+
+    #header .Telefone {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        width: 100%;
+        top: 200px;
+        color: #fff;
+        font-weight: bolder;
+        text-shadow: 3px 3px 5px black;
+        font-size: 24px;
+    }
+
+@media only screen and (max-width: 600px) {
+    #header {
+        height: 275px;
+    }
+
+        #header img {
+            height: 275px;
+        }
+
+        #header .fraseTema {
+            top: 150px;
+            font-size: 60px;
+        }
+
+        #header .Telefone {
+            top: 150px;
+            font-size: 23px;
+        }
+}
+
+/* NavBar */
+nav {
+    transition: 0.3s;
+    top: 40px;
+    position: fixed;
+    z-index: 2;
+    border-top: 7px solid rgb(204, 5, 5);
+    border-bottom: 7px solid rgb(204, 5, 5);
+    width: 100%;
+    background-color: RGBA(1,1,1,0.5);
+}
+
+    nav > div:first-child {
+        border-top: 5px solid #009045;
+        border-bottom: 5px solid #009045;
+    }
+
+.ulNav {
+    padding: 15px 0;
+    padding-left: 190px;
+}
+
+    .ulNav li {
+        display: inline-block;
+        color: #fff;
+        padding: 0px 10px;
+        font-weight: bolder;
+        font-size: 16px;
+    }
+
+        .ulNav li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+.iconNav {
+    position: absolute;
+    height: 150px;
+    left: 30px;
+    top: 0;
+    z-index: 3;
+}
+
+.ulSide {
+    position: fixed;
+    z-index: 7;
+    height: 100%;
+    width: 300px;
+    background-color: RGBA(1,1,1,0.9);
+    color: white;
+    list-style-type: none;
+    right: -300px;
+    transition: right 1s;
+    padding-right: 30px;
+    padding-top: 140px;
+    text-align: center;
+}
+
+    .ulSide a {
+        Color: #fff;
+        text-decoration: none;
+    }
+
+    .ulSide li {
+        font-size: 20px;
+        font-weight: bolder;
+        padding: 10px 0;
+    }
+
+.menuIcon {
+    top: 60px;
+}
+
+@media (max-width: 740px) {
+    nav {
+        position: absolute;
+    }
+
+    .iconNav {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .ulNav li {
+        display: none;
+    }
+
+    nav div {
+        height: 70px;
+    }
+
+    .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: #fff;
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+
+    .change .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px);
+    }
+
+    .change .bar2 {
+        opacity: 0;
+    }
+
+    .change .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px);
+    }
+
+    .menuIcon {
+        transition: 0.3s;
+        position: fixed;
+        right: 40px;
+        top: 60px;
+        height: auto;
+        z-index: 10;
+        padding: 2px 5px;
+        border-radius: 5px;
+        background-color: RGBA(1,1,1,0.7);
+    }
+}

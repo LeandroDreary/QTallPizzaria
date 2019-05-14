@@ -1,0 +1,37 @@
+﻿@model QTallPizzaria.Models.Produto
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Administrador/Layout.cshtml";
+}
+
+<div class="container">
+    <h4 class="my-4">PRODUTO</h4>
+    <hr />
+    <div class="card bg-light rounded">
+        <div class="row">
+            <div class="col mx-4 my-4">
+                @Html.Label("Nome do produto:", htmlAttributes: new { @class = "control-label  font-weight-bold" })
+                @Html.DisplayFor(model => model.nome)<br />
+                @Html.Label("Preço:", htmlAttributes: new { @class = "control-label font-weight-bold" })
+
+                @Html.DisplayFor(model => model.preco)<br />
+                @Html.Label("Tipo:", htmlAttributes: new { @class = "control-label font-weight-bold" })
+
+                @Html.DisplayFor(model => model.TipoProduto.nomeTipo)<br />
+                @Html.Label("Descrição:", htmlAttributes: new { @class = "control-label font-weight-bold" })
+                @Html.DisplayFor(model => model.descricao)<br />
+            </div>
+            <div class="col">
+                <img src="@Html.DisplayFor(model => model.foto)" width="100%" />
+
+            </div>
+        </div>
+        @Html.ActionLink("Editar", "Edit", "Produto", new { id = Model.idProduto, @class = "btn btn-success" })
+    </div>
+
+
+    <p>
+        @Html.ActionLink("Voltar", "Index")
+    </p>
+    </div>
