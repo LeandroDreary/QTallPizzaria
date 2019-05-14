@@ -61,6 +61,8 @@ namespace QTallPizzaria.Controllers
                     file.SaveAs(Path.Combine(Server.MapPath("~/img/Home/produtos/"), _FileName));
                     produto.foto = "../../img/Home/produtos/" + _FileName;
                 }
+                if (produto.descricao == null)
+                    produto.descricao = "";
                 db.Produto.Add(produto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -96,9 +98,10 @@ namespace QTallPizzaria.Controllers
             if (ModelState.IsValid)
             {
                 HttpPostedFileBase file = Request.Files["arquivoFoto"];
+                DBQtallEntities dbSearch = new DBQtallEntities();
                 if (file.ContentLength > 0)
-                {
-                    string _path = db.Produto.Find(produto.idProduto).foto;
+                {      
+                    string _path = dbSearch.Produto.Find(produto.idProduto).foto;
                     if (_path != null)
                     {
                         _path = _path.Replace("../", "").Insert(0, "~/");
@@ -111,7 +114,7 @@ namespace QTallPizzaria.Controllers
                     produto.foto = "../../img/Home/produtos/" + _FileName;
                 }
                 else
-                    produto.foto = db.Produto.Find(produto.idProduto).foto;
+                    produto.foto = dbSearch.Produto.Find(produto.idProduto).foto;
                 db.Entry(produto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

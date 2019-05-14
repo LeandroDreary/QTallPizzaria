@@ -10,6 +10,11 @@ namespace QTallPizzaria.Classes
         public string Retorno(string texto,int Quant)
         {
             string textoReturn = texto;
+            if(texto == null)
+            {
+                return textoReturn = "";
+            }
+            else
             if (texto.Length > Quant)
             {
                 if (texto[Quant] != Convert.ToChar(" "))
