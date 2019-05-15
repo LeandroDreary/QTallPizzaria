@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Página Inicial";
-    Layout = "~/Views/Home/Layout.cshtml";
+    Layout = "~/Views/Shared/Home.cshtml";
     ViewBag.Frase = "O melhor pedaço do seu dia!";
     ViewBag.Telefone = "(14) 3641-4404";
 }
@@ -10,7 +10,10 @@
 
 <div class="destaque">
     <h3 class="text-center font-weight-bold py-4">Destaques</h3>
-    <hr />
+    <div class="container">
+        <hr />
+    </div>
+    
     <div clas="carrosel">
         <div class="barra-verde">
             <div class="container">

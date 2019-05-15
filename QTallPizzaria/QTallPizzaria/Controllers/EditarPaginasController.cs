@@ -20,8 +20,8 @@ namespace QTallPizzaria.Controllers
 
         public ActionResult Banner()
         {
-
-            return View();
+            var banners = db.banner;
+            return View(banners.ToList());
         }
     }
 }

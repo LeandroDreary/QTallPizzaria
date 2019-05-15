@@ -86,21 +86,25 @@ namespace QTallPizzaria.Controllers
             {
                 pvm.Espetinhos.Add(new Espetinho() { Foto = item.foto, NomeProduto = item.nome, preco = item.preco, Descricao = limitar.Retorno(item.descricao, 200) });
             }
+            ViewBag.HeaderBackground = db.banner.Find(2).diretorio;
             return View(pvm);
         }
 
         public ActionResult Galeria()
         {
+            ViewBag.HeaderBackground = db.banner.Find(3).diretorio;
             return View();
         }
 
         public ActionResult Sobre()
         {
+            ViewBag.HeaderBackground = db.banner.Find(4).diretorio;
             return View();
         }
 
         public ActionResult Contato()
         {
+            ViewBag.HeaderBackground = db.banner.Find(5).diretorio;
             return View();
         }
     }

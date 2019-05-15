@@ -1,12 +1,59 @@
 ﻿
 @{
     ViewBag.Title = "Banner";
-    Layout = "~/Views/Administrador/Layout.cshtml";
+    Layout = "~/Views/Shared/Administrador.cshtml";
 }
+<div class="container">
+    <h2>Banner</h2>
 
-<h2>Banner</h2>
+    <h3 class="text-center">Index</h3>
 
-<h3>Index</h3>
+    <hr class="m-3" />
 
-<img src="@Model.banner[0].diretorio">
+    <div class="row">
+        <div class="col-6">
+            <img width="100%" src="@Model.ToArray()[0].diretorio">
+        </div>
+    </div>
 
+    <h3 class="text-center">Cardápio</h3>
+
+    <hr class="m-3" />
+
+    <div class="row">
+        <div class="col-6">
+            <img width="100%" src="@Model.ToArray()[1].diretorio">
+        </div>
+    </div>
+
+    <h3 class="text-center">Galeria de fotos</h3>
+
+    <hr class="m-3" />
+
+    <div class="row">
+        <div class="col-6">
+            <img width="100%" src="@Model.ToArray()[2].diretorio">
+        </div>
+    </div>
+
+    <h3 class="text-center">Sobre</h3>
+
+    <hr class="m-3" />
+
+    <div class="row">
+        <div class="col-6">
+            <img width="100%" src="@Model.ToArray()[3].diretorio">
+        </div>
+    </div>
+
+    <h3 class="text-center">Contato</h3>
+
+    <hr class="m-3" />
+
+    <div class="row">
+        <div class="col-6">
+            <img width="100%" src="@Model.ToArray()[4].diretorio">
+        </div>
+    </div>
+
+</div>
