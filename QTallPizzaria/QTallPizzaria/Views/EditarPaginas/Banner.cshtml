@@ -10,50 +10,151 @@
 
     <hr class="m-3" />
 
-    <div class="row">
-        <div class="col-6">
-            <img width="100%" src="@Model.ToArray()[0].diretorio">
-        </div>
+    <div class="row pb-5">
+        @using (Html.BeginForm("Banner", "EditarPaginas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="col-6">
+                <img width="100%" id="index" src="@Model.ToArray()[0].diretorio">
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="arquivoFoto">Foto do produto:</label>
+                    <div class="col-md-10">
+                        <input type="file" onchange="readURL(this,'index');" name="arquivoFoto" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Salvar" id="0" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 
     <h3 class="text-center">Cardápio</h3>
 
     <hr class="m-3" />
 
-    <div class="row">
-        <div class="col-6">
-            <img width="100%" src="@Model.ToArray()[1].diretorio">
-        </div>
+    <div class="row pb-5">
+        @using (Html.BeginForm("Banner", "EditarPaginas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="col-6">
+                <img width="100%" id="cardapio" src="@Model.ToArray()[1].diretorio">
+            </div>
+            <div class="col-6">
+
+                <div class="form-group">
+                    <label for="arquivoFoto">Foto do produto:</label>
+                    <div class="col-md-10">
+                        <input type="file" onchange="readURL(this,'cardapio');" name="arquivoFoto" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Salvar" id="1" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 
     <h3 class="text-center">Galeria de fotos</h3>
 
     <hr class="m-3" />
 
-    <div class="row">
-        <div class="col-6">
-            <img width="100%" src="@Model.ToArray()[2].diretorio">
-        </div>
+    <div class="row pb-5">
+        @using (Html.BeginForm("Banner", "EditarPaginas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="col-6">
+                <img width="100%" id="galeria" src="@Model.ToArray()[2].diretorio">
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="arquivoFoto">Foto do produto:</label>
+                    <div class="col-md-10">
+                        <input type="file" onchange="readURL(this,'galeria');" name="arquivoFoto" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Salvar" id="2" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 
     <h3 class="text-center">Sobre</h3>
 
     <hr class="m-3" />
 
-    <div class="row">
-        <div class="col-6">
-            <img width="100%" src="@Model.ToArray()[3].diretorio">
-        </div>
+    <div class="row pb-5">
+        @using (Html.BeginForm("Banner", "EditarPaginas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="col-6">
+                <img width="100%" id="sobre" src="@Model.ToArray()[3].diretorio">
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="arquivoFoto">Foto do produto:</label>
+                    <div class="col-md-10">
+                        <input type="file" onchange="readURL(this,'sobre');" name="arquivoFoto" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Salvar" id="3" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 
     <h3 class="text-center">Contato</h3>
 
     <hr class="m-3" />
 
-    <div class="row">
-        <div class="col-6">
-            <img width="100%" src="@Model.ToArray()[4].diretorio">
-        </div>
+    <div class="row pb-5">
+        @using (Html.BeginForm("Banner", "EditarPaginas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="col-6">
+                <img width="100%" id="contato" src="@Model.ToArray()[4].diretorio">
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="arquivoFoto">Foto do produto:</label>
+                    <div class="col-md-10">
+                        <input type="file" onchange="readURL(this,'contato');" name="arquivoFoto" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Salvar" id="4" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        }
     </div>
-
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function readURL(input, idFoto) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#' + idFoto)
+                    .attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
