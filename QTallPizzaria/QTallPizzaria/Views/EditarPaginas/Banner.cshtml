@@ -9,11 +9,11 @@
     <h3 class="text-center">Index</h3>
 
     <hr class="m-3" />
+    @using (Html.BeginForm("Banner/1", "EditarPaginas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row pb-5">
 
-    <div class="row pb-5">
-        @using (Html.BeginForm("Banner", "EditarPaginas", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            @Html.AntiForgeryToken()
             <div class="col-6">
                 <img width="100%" id="index" src="@Model.ToArray()[0].diretorio">
             </div>
@@ -30,17 +30,17 @@
                     </div>
                 </div>
             </div>
-        }
-    </div>
+        </div>
+    }
 
     <h3 class="text-center">Cardápio</h3>
 
     <hr class="m-3" />
+    @using (Html.BeginForm("Banner/2", "EditarPaginas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row pb-5">
 
-    <div class="row pb-5">
-        @using (Html.BeginForm("Banner", "EditarPaginas", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            @Html.AntiForgeryToken()
             <div class="col-6">
                 <img width="100%" id="cardapio" src="@Model.ToArray()[1].diretorio">
             </div>
@@ -58,17 +58,18 @@
                     </div>
                 </div>
             </div>
-        }
-    </div>
+        </div>
+    }
 
     <h3 class="text-center">Galeria de fotos</h3>
 
     <hr class="m-3" />
 
-    <div class="row pb-5">
-        @using (Html.BeginForm("Banner", "EditarPaginas", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            @Html.AntiForgeryToken()
+    @using (Html.BeginForm("Banner/3", "EditarPaginas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row pb-5">
+
             <div class="col-6">
                 <img width="100%" id="galeria" src="@Model.ToArray()[2].diretorio">
             </div>
@@ -85,17 +86,18 @@
                     </div>
                 </div>
             </div>
-        }
-    </div>
+        </div>
+    }
 
     <h3 class="text-center">Sobre</h3>
 
     <hr class="m-3" />
 
-    <div class="row pb-5">
-        @using (Html.BeginForm("Banner", "EditarPaginas", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            @Html.AntiForgeryToken()
+    @using (Html.BeginForm("Banner/4", "EditarPaginas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row pb-5">
+
             <div class="col-6">
                 <img width="100%" id="sobre" src="@Model.ToArray()[3].diretorio">
             </div>
@@ -112,17 +114,17 @@
                     </div>
                 </div>
             </div>
-        }
-    </div>
+        </div>
+    }
 
     <h3 class="text-center">Contato</h3>
 
     <hr class="m-3" />
 
-    <div class="row pb-5">
-        @using (Html.BeginForm("Banner", "EditarPaginas", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            @Html.AntiForgeryToken()
+    @using (Html.BeginForm("Banner/5", "EditarPaginas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row pb-5">
             <div class="col-6">
                 <img width="100%" id="contato" src="@Model.ToArray()[4].diretorio">
             </div>
@@ -139,8 +141,8 @@
                     </div>
                 </div>
             </div>
-        }
-    </div>
+        </div>
+    }
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

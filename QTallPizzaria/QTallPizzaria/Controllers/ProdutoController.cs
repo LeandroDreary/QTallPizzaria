@@ -100,7 +100,7 @@ namespace QTallPizzaria.Controllers
                 HttpPostedFileBase file = Request.Files["arquivoFoto"];
                 DBQtallEntities dbSearch = new DBQtallEntities();
                 if (file.ContentLength > 0)
-                {      
+                {
                     string _path = dbSearch.Produto.Find(produto.idProduto).foto;
                     if (_path != null)
                     {
@@ -143,9 +143,11 @@ namespace QTallPizzaria.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-              
+
             Produto produto = db.Produto.Find(id);
-            string _path = produto.foto.Replace("../", "").Insert(0, "~/"); 
+            string _path = "";
+            if (produto.foto != null)
+                _path = produto.foto.Replace("../", "").Insert(0, "~/");
             if (System.IO.File.Exists(_path))
                 System.IO.File.Delete(_path);
             db.Produto.Remove(produto);

@@ -44,7 +44,7 @@ namespace QTallPizzaria.Controllers
             {
                 string _FileName = (DateTime.Now + Path.GetExtension(file.FileName)).ToString();
                 _FileName = _FileName.Replace("/", "").Replace(":", "").Replace(" ", "");
-                file.SaveAs(Path.Combine(Server.MapPath("~/img/Home/produtos/"), _FileName));
+                file.SaveAs(Path.Combine(Server.MapPath("~/img/Home/banners/"), _FileName));
                 Banner.diretorio = "../../img/Home/banners/" + _FileName;
                 db.Entry(Banner).State = EntityState.Modified;
                 db.SaveChanges();
