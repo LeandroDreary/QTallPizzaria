@@ -294,7 +294,6 @@
     <Content Include="Views\Produto\Edit.cshtml" />
     <Content Include="Views\Produto\Index.cshtml" />
     <Content Include="Views\EditarPaginas\Banner.cshtml" />
-    <Content Include="Views\EditarPaginas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
