@@ -27,11 +27,11 @@
             <clipPath id="clip-path">
                 <path id="forma" d="M0,0 0,0 40,0 100,65 0,65  z">
             </clipPath>
-            <image clip-path="url(#clip-path)" xlink:href="@Model.Destaques[0].Foto" alt="Image" height="100" width="100" class="svg__image">
+            <image clip-path="url(#clip-path)" xlink:href="@ViewBag.PizzasDestaque[0].Foto" alt="Image" height="100" width="100" class="svg__image">
         </svg>
         <div class="infoPizzaCel">
-            <h3 class="nomepizza">@Model.Destaques[0].NomeProduto</h3>
-            <h3 class="preco">POR @Model.Destaques[0].preco</h3>
+            <h3 class="nomepizza">@ViewBag.PizzasDestaque[0].NomeProduto</h3>
+            <h3 class="preco">POR @ViewBag.PizzasDestaque[0].preco</h3>
         </div>
         <div class="bolas">
             <div class="bola" id="active" onclick="changeInfo(0,this)"></div>
@@ -50,11 +50,11 @@
         <h4 class="text-center">Pizzas</h4>
         <hr class="mx-5" />
         <div class="row">
-            @foreach (var item in Model.Pizza)
+            @for(int i = 0; i < 3; i++ )
             {
                 <div class="col-sm">
                     <div class="card my-4 mx-auto" style="width: 18rem;">
-                        <img src="@item.Foto" class="card-img-top" alt="...">
+                        <img src="@ViewBag.PizzasDestaque[0].Foto" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">@item.NomeProduto</h5>
                             <p class="card-text">@item.Descricao</p>

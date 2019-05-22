@@ -19,6 +19,16 @@ namespace QTallPizzaria.Controllers
         public ActionResult Index()
         {
             var produto = db.Produto.Include(p => p.TipoProduto);
+
+
+
+            ViewBag.PizzasDestaque = db.Produto.Where(p => p.idTipo == 1).OrderByDescending(p => p.idProduto).Take(3);  // && p.Sugestao == true); // "consulta que traz as pizzas que tem aquele campo DESTAQUE como true";
+
+            // 
+
+
+
+
             return View(produto.ToList());
         }
 

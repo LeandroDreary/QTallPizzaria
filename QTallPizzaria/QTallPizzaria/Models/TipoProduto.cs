@@ -18,7 +18,6 @@ namespace QTallPizzaria.Models
         public TipoProduto()
         {
             this.Produto = new HashSet<Produto>();
-            this.Sugestao = new HashSet<Sugestao>();
         }
     
         public int idTipo { get; set; }
@@ -26,7 +25,5 @@ namespace QTallPizzaria.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Produto> Produto { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sugestao> Sugestao { get; set; }
     }
 }

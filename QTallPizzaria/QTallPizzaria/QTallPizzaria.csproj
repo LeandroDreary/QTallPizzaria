@@ -144,39 +144,33 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\banner.cs">
-      <DependentUpon>DBQtall.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DBQtall.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBQtall.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DBQtall.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBQtall.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DBQtall.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBQtall.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Destaque.cs">
-      <DependentUpon>DBQtall.tt</DependentUpon>
+      <DependentUpon>QtallPizzariaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EditarViewModel.cs" />
     <Compile Include="Models\Foto.cs">
-      <DependentUpon>DBQtall.tt</DependentUpon>
+      <DependentUpon>QtallPizzariaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Produto.cs">
-      <DependentUpon>DBQtall.tt</DependentUpon>
+      <DependentUpon>QtallPizzariaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProdutoViewModel.cs" />
-    <Compile Include="Models\Sugestao.cs">
-      <DependentUpon>DBQtall.tt</DependentUpon>
+    <Compile Include="Models\QtallPizzariaDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QtallPizzariaDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QtallPizzariaDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QtallPizzariaDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QtallPizzariaDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QtallPizzariaDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoProduto.cs">
-      <DependentUpon>DBQtall.tt</DependentUpon>
+      <DependentUpon>QtallPizzariaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -201,15 +195,15 @@
     <Content Include="img\Home\banners\index.jpg" />
     <Content Include="img\Home\banners\sobre.jpg" />
     <Content Include="img\icon.png" />
-    <Content Include="Models\DBQtall.Context.tt">
+    <Content Include="Models\QtallPizzariaDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBQtall.edmx</DependentUpon>
-      <LastGenOutput>DBQtall.Context.cs</LastGenOutput>
+      <DependentUpon>QtallPizzariaDB.edmx</DependentUpon>
+      <LastGenOutput>QtallPizzariaDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DBQtall.tt">
+    <Content Include="Models\QtallPizzariaDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBQtall.edmx</DependentUpon>
-      <LastGenOutput>DBQtall.cs</LastGenOutput>
+      <DependentUpon>QtallPizzariaDB.edmx</DependentUpon>
+      <LastGenOutput>QtallPizzariaDB.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -258,12 +252,12 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <EntityDeploy Include="Models\DBQtall.edmx">
+    <EntityDeploy Include="Models\QtallPizzariaDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DBQtall.Designer.cs</LastGenOutput>
+      <LastGenOutput>QtallPizzariaDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\DBQtall.edmx.diagram">
-      <DependentUpon>DBQtall.edmx</DependentUpon>
+    <Content Include="Models\QtallPizzariaDB.edmx.diagram">
+      <DependentUpon>QtallPizzariaDB.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="Views\Home\Cardapio.cshtml" />

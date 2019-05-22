@@ -15,44 +15,12 @@ namespace QTallPizzaria.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            var evm = new EditarViewModel();
-            
-            for (var i = 1; i <= 3; i++)
-                evm.Destaques.Add(new Destaques()
-                {
-                    NomeProduto = db.Produto.Find(db.Destaque.Find(i).idDestaque).nome,
-                    Foto = db.Produto.Find(db.Destaque.Find(i).idDestaque).foto,
-                    preco = db.Produto.Find(db.Destaque.Find(i).idDestaque).preco
-                });
-            foreach (var item in db.Sugestao.ToList())
-            {
-                if (item.idTipo == 1)
-                    evm.Pizza.Add(new Pizza
-                    {
-                        NomeProduto = db.Produto.Find(item.idProduto).nome,
-                        Foto = db.Produto.Find(item.idProduto).foto,
-                        preco = db.Produto.Find(item.idProduto).preco,
-                        Descricao = limitar.Retorno(db.Produto.Find(item.idProduto).descricao, 100)
-                    });
-                if (item.idTipo == 2)
-                    evm.Bebidas.Add(new Bebida
-                    {
-                        NomeProduto = db.Produto.Find(item.idProduto).nome,
-                        Foto = db.Produto.Find(item.idProduto).foto,
-                        preco = db.Produto.Find(item.idProduto).preco,
-                        Descricao = limitar.Retorno(db.Produto.Find(item.idProduto).descricao, 100)
-                    });
-                if (item.idTipo == 3)
-                    evm.Lanches.Add(new Lanche
-                    {
-                        NomeProduto = db.Produto.Find(item.idProduto).nome,
-                        Foto = db.Produto.Find(item.idProduto).foto,
-                        preco = db.Produto.Find(item.idProduto).preco,
-                        Descricao = limitar.Retorno(db.Produto.Find(item.idProduto).descricao, 100)
-                    });
-            }
+            ViewBag.PizzasDestaque = db.Produto.Where(p => p.idTipo == 1 && p.DESTAQUES == true).OrderByDescending(p => p.DATAMODIFICACAODESTAQUE).Take(3);
+            ViewBag.PizzasSugestao = db.Produto.Where(p => p.idTipo == 1 && p.SUGESTAO == true).OrderByDescending(p => p.DATAMODIFICACAOSUGESTAO).Take(3);
+            ViewBag.BebidasSugestao = db.Produto.Where(p => p.idTipo == 2 && p.SUGESTAO == true).OrderByDescending(p => p.DATAMODIFICACAOSUGESTAO).Take(3);
+            ViewBag.LanchesSugestao = db.Produto.Where(p => p.idTipo == 3 && p.SUGESTAO == true).OrderByDescending(p => p.DATAMODIFICACAOSUGESTAO).Take(3);
             ViewBag.HeaderBackground = db.banner.Find(1).diretorio;
-            return View(evm);
+            return View();
         }
 
         public ActionResult Cardapio()

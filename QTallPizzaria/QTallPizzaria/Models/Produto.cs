@@ -14,24 +14,17 @@ namespace QTallPizzaria.Models
     
     public partial class Produto
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Produto()
-        {
-            this.Destaque = new HashSet<Destaque>();
-            this.Sugestao = new HashSet<Sugestao>();
-        }
-    
         public int idProduto { get; set; }
         public string nome { get; set; }
         public Nullable<decimal> preco { get; set; }
         public string descricao { get; set; }
         public string foto { get; set; }
         public Nullable<int> idTipo { get; set; }
+        public Nullable<bool> SUGESTAO { get; set; }
+        public Nullable<bool> DESTAQUES { get; set; }
+        public Nullable<System.DateTime> DATAMODIFICACAOSUGESTAO { get; set; }
+        public Nullable<System.DateTime> DATAMODIFICACAODESTAQUE { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Destaque> Destaque { get; set; }
         public virtual TipoProduto TipoProduto { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sugestao> Sugestao { get; set; }
     }
 }
