@@ -1,4 +1,4 @@
-﻿
+﻿@using QTallPizzaria.Classes
 @model IEnumerable<QTallPizzaria.Models.Produto>
 
 @{
@@ -48,7 +48,6 @@
             </thead>
         </table>
         <div class="row">
-            @{QTallPizzaria.Classes.LimitarString limitar = new QTallPizzaria.Classes.LimitarString();}
             @foreach (var item in Model)
             {
                 <div class="col-md-4">
@@ -63,7 +62,7 @@
                             <img width="100%" src="@Html.DisplayFor(modelItem => item.foto)" />
                         </div>
                         <div class="text-center p-2 text-justify">
-                            @limitar.Retorno(item.descricao, 150)
+                            @LimitarString.Retorno(item.descricao, 150)
                         </div>
                         <div class="text-info pt-2 bg-light border-top border-bottom text-center align-middle">
                             <h5>@Html.DisplayFor(modelItem => item.TipoProduto.nomeTipo)</h5>

@@ -1,4 +1,4 @@
-﻿
+﻿@using QTallPizzaria.Classes
 @{
     ViewBag.Title = "Página Inicial";
     Layout = "~/Views/Shared/Home.cshtml";
@@ -27,10 +27,10 @@
             <clipPath id="clip-path">
                 <path id="forma" d="M0,0 0,0 40,0 100,65 0,65  z">
             </clipPath>
-            <image clip-path="url(#clip-path)" xlink:href="@ViewBag.PizzasDestaque[0].Foto" alt="Image" height="100" width="100" class="svg__image">
+            <image clip-path="url(#clip-path)" xlink:href="@ViewBag.PizzasDestaque[0].foto" alt="Image" height="100" width="100" class="svg__image">
         </svg>
         <div class="infoPizzaCel">
-            <h3 class="nomepizza">@ViewBag.PizzasDestaque[0].NomeProduto</h3>
+            <h3 class="nomepizza">@ViewBag.PizzasDestaque[0].nome</h3>
             <h3 class="preco">POR @ViewBag.PizzasDestaque[0].preco</h3>
         </div>
         <div class="bolas">
@@ -50,14 +50,14 @@
         <h4 class="text-center">Pizzas</h4>
         <hr class="mx-5" />
         <div class="row">
-            @for(int i = 0; i < 3; i++ )
+            @foreach(var item in ViewBag.PizzasSugestao)
             {
                 <div class="col-sm">
                     <div class="card my-4 mx-auto" style="width: 18rem;">
-                        <img src="@ViewBag.PizzasDestaque[0].Foto" class="card-img-top" alt="...">
+                        <img src="@item.foto" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">@item.NomeProduto</h5>
-                            <p class="card-text">@item.Descricao</p>
+                            <h5 class="card-title">@item.nome</h5>
+                            <p class="card-text">@LimitarString.Retorno(item.descricao, 100)</p>
                             <a href="#" class="btn btn-primary">R$ @item.preco</a>
                         </div>
                     </div>
@@ -69,14 +69,15 @@
         <h4 class="text-center">Lanches</h4>
         <hr class="mx-5" />
         <div class="row">
-            @foreach (var item in Model.Lanches)
+
+            @foreach (var item in ViewBag.LanchesSugestao)
             {
                 <div class="col-sm">
                     <div class="card my-4 mx-auto" style="width: 18rem;">
-                        <img src="@item.Foto" class="card-img-top" alt="...">
+                        <img src="@item.foto" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">@item.NomeProduto</h5>
-                            <p class="card-text">@item.Descricao</p>
+                            <h5 class="card-title">@item.nome</h5>
+                            <p class="card-text">@LimitarString.Retorno(item.descricao, 100)</p>
                             <a href="#" class="btn btn-primary">R$ @item.preco</a>
                         </div>
                     </div>
@@ -87,14 +88,14 @@
         <h4 class="text-center">Bebidas</h4>
         <hr class="mx-5" />
         <div class="row">
-            @foreach (var item in Model.Bebidas)
+            @foreach (var item in ViewBag.BebidasSugestao)
             {
                 <div class="col-sm">
                     <div class="card my-4 mx-auto" style="width: 18rem;">
-                        <img src="@item.Foto" class="card-img-top" alt="...">
+                        <img src="@item.foto" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">@item.NomeProduto</h5>
-                            <p class="card-text">@item.Descricao</p>
+                            <h5 class="card-title">@item.nome</h5>
+                            <p class="card-text">@LimitarString.Retorno(item.descricao, 100)</p>
                             <a href="#" class="btn btn-primary">R$ @item.preco</a>
                         </div>
                     </div>
@@ -118,9 +119,9 @@
 </div>
 
 <script type="text/javascript">
-        var img = ["@Model.Destaques[0].Foto","@Model.Destaques[1].Foto","@Model.Destaques[2].Foto"];
-        var NomePizza = ["@Model.Destaques[0].NomeProduto", "@Model.Destaques[1].NomeProduto", "@Model.Destaques[2].NomeProduto"];
-        var preco = ["POR R$ @Model.Destaques[0].preco", "POR R$ @Model.Destaques[1].preco", "POR R$ @Model.Destaques[2].preco"];
+        @*var img = ["@ViewBag.PizzasDestaque[0].foto","@ViewBag.PizzasDestaque[1].foto","@ViewBag.PizzasDestaque[2].foto"];
+        var NomePizza = ["@ViewBag.PizzasDestaque[0].nome", "@ViewBag.PizzasDestaque[1].nome", "@ViewBag.PizzasDestaque[2].nome"];
+        var preco = ["POR R$ @ViewBag.PizzasDestaque[0].preco", "POR R$ @ViewBag.PizzasDestaque[1].preco", "POR R$ @ViewBag.PizzasDestaque[2].preco"];*@
 
         function changeInfo(i, isso) {
             var pizzaNome = document.getElementsByClassName("nomepizza");

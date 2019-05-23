@@ -804,8 +804,8 @@ C:\Users\etec\Documents\GitHub\QTallPizzaria\QTallPizzaria\QTallPizzaria\bin\pt-
 C:\Users\etec\Documents\GitHub\QTallPizzaria\QTallPizzaria\QTallPizzaria\bin\pt-br\System.Web.WebPages.resources.dll
 C:\Users\etec\Documents\GitHub\QTallPizzaria\QTallPizzaria\QTallPizzaria\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
 C:\Users\etec\Documents\GitHub\QTallPizzaria\QTallPizzaria\QTallPizzaria\bin\pt-br\System.Web.WebPages.Razor.resources.dll
-C:\Users\etec\Documents\GitHub\QTallPizzaria\QTallPizzaria\QTallPizzaria\obj\Debug\QTallPizzaria.csprojAssemblyReference.cache
 C:\Users\etec\Documents\GitHub\QTallPizzaria\QTallPizzaria\QTallPizzaria\obj\Debug\QTallPizzaria.csproj.CoreCompileInputs.cache
 C:\Users\etec\Documents\GitHub\QTallPizzaria\QTallPizzaria\QTallPizzaria\obj\Debug\QTallPizzaria.csproj.CopyComplete
 C:\Users\etec\Documents\GitHub\QTallPizzaria\QTallPizzaria\QTallPizzaria\obj\Debug\QTallPizzaria.dll
 C:\Users\etec\Documents\GitHub\QTallPizzaria\QTallPizzaria\QTallPizzaria\obj\Debug\QTallPizzaria.pdb
+C:\Users\etec\Documents\GitHub\QTallPizzaria\QTallPizzaria\QTallPizzaria\obj\Debug\QTallPizzaria.csprojAssemblyReference.cache

@@ -5,9 +5,9 @@ using System.Web;
 
 namespace QTallPizzaria.Classes
 {
-    public class LimitarString
+    public static class LimitarString
     {
-        public string Retorno(string texto,int Quant)
+        public static string Retorno(string texto,int Quant)
         {
             string textoReturn = texto;
             if(texto == null)

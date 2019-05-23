@@ -19,16 +19,6 @@ namespace QTallPizzaria.Controllers
         public ActionResult Index()
         {
             var produto = db.Produto.Include(p => p.TipoProduto);
-
-
-
-            ViewBag.PizzasDestaque = db.Produto.Where(p => p.idTipo == 1).OrderByDescending(p => p.idProduto).Take(3);  // && p.Sugestao == true); // "consulta que traz as pizzas que tem aquele campo DESTAQUE como true";
-
-            // 
-
-
-
-
             return View(produto.ToList());
         }
 
@@ -103,7 +93,7 @@ namespace QTallPizzaria.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idProduto,nome,preco,descricao,idTipo")] Produto produto)
+        public ActionResult Edit([Bind(Include = "idProduto,nome,preco,descricao,idTipo,DESTAQUES,SUGESTAO")] Produto produto)
         {
             if (ModelState.IsValid)
             {
@@ -125,6 +115,14 @@ namespace QTallPizzaria.Controllers
                 }
                 else
                     produto.foto = dbSearch.Produto.Find(produto.idProduto).foto;
+                if (produto.DESTAQUES == true && produto.idTipo == 1)
+                    produto.DATAMODIFICACAODESTAQUE = DateTime.Now;
+                else
+                    produto.DESTAQUES = false;
+                if (produto.SUGESTAO == true && produto.idTipo == 1 || produto.idTipo == 2 || produto.idTipo == 3)
+                    produto.DATAMODIFICACAOSUGESTAO = DateTime.Now;
+                else
+                    produto.SUGESTAO = false;
                 db.Entry(produto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
