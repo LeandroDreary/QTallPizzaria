@@ -13,6 +13,7 @@
     </Key>
     <Property Name="idFoto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descricao" Type="varchar" MaxLength="3000" />
+    <Property Name="img" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Produto">
     <Key>
@@ -26,8 +27,8 @@
     <Property Name="idTipo" Type="int" />
     <Property Name="SUGESTAO" Type="bit" />
     <Property Name="DESTAQUES" Type="bit" />
-    <Property Name="DATAMODIFICACAOSUGESTAO" Type="date" />
-    <Property Name="DATAMODIFICACAODESTAQUE" Type="date" />
+    <Property Name="DATAMODIFICACAOSUGESTAO" Type="datetime" />
+    <Property Name="DATAMODIFICACAODESTAQUE" Type="datetime" />
   </EntityType>
   <EntityType Name="TipoProduto">
     <Key>

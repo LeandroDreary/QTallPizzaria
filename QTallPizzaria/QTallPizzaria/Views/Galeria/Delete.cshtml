@@ -1,0 +1,43 @@
+﻿@model QTallPizzaria.Models.Foto
+
+@{
+    ViewBag.Title = "Apagar";
+    Layout = "~/Views/Shared/Administrador.cshtml";
+}
+<div class="container">
+    <h2>Delete</h2>
+
+    <h3>Tem certeza que deseja apagar essa foto?</h3>
+    <div>
+        <h4>Foto</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.descricao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.descricao)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.img)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.img)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Apagar" class="btn btn-default" /> |
+                @Html.ActionLink("Voltar", "Index")
+            </div>
+        }
+    </div>
+</div>

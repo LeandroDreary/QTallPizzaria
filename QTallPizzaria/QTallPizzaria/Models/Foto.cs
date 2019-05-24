@@ -16,5 +16,6 @@ namespace QTallPizzaria.Models
     {
         public int idFoto { get; set; }
         public string descricao { get; set; }
+        public string img { get; set; }
     }
 }

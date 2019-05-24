@@ -138,39 +138,40 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Classes\LimitarString.cs" />
     <Compile Include="Controllers\EditarPaginasController.cs" />
+    <Compile Include="Controllers\GaleriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\banner.cs">
-      <DependentUpon>QtallPizzariaDB.tt</DependentUpon>
+      <DependentUpon>QTallPizzariaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EditarViewModel.cs" />
     <Compile Include="Models\Foto.cs">
-      <DependentUpon>QtallPizzariaDB.tt</DependentUpon>
+      <DependentUpon>QTallPizzariaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Produto.cs">
-      <DependentUpon>QtallPizzariaDB.tt</DependentUpon>
+      <DependentUpon>QTallPizzariaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProdutoViewModel.cs" />
-    <Compile Include="Models\QtallPizzariaDB.Context.cs">
+    <Compile Include="Models\QTallPizzariaDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QtallPizzariaDB.Context.tt</DependentUpon>
+      <DependentUpon>QTallPizzariaDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QtallPizzariaDB.cs">
+    <Compile Include="Models\QTallPizzariaDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QtallPizzariaDB.tt</DependentUpon>
+      <DependentUpon>QTallPizzariaDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QtallPizzariaDB.Designer.cs">
+    <Compile Include="Models\QTallPizzariaDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QtallPizzariaDB.edmx</DependentUpon>
+      <DependentUpon>QTallPizzariaDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoProduto.cs">
-      <DependentUpon>QtallPizzariaDB.tt</DependentUpon>
+      <DependentUpon>QTallPizzariaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -195,15 +196,15 @@
     <Content Include="img\Home\banners\index.jpg" />
     <Content Include="img\Home\banners\sobre.jpg" />
     <Content Include="img\icon.png" />
-    <Content Include="Models\QtallPizzariaDB.Context.tt">
+    <Content Include="Models\QTallPizzariaDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QtallPizzariaDB.edmx</DependentUpon>
-      <LastGenOutput>QtallPizzariaDB.Context.cs</LastGenOutput>
+      <DependentUpon>QTallPizzariaDB.edmx</DependentUpon>
+      <LastGenOutput>QTallPizzariaDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\QtallPizzariaDB.tt">
+    <Content Include="Models\QTallPizzariaDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QtallPizzariaDB.edmx</DependentUpon>
-      <LastGenOutput>QtallPizzariaDB.cs</LastGenOutput>
+      <DependentUpon>QTallPizzariaDB.edmx</DependentUpon>
+      <LastGenOutput>QTallPizzariaDB.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -252,12 +253,12 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <EntityDeploy Include="Models\QtallPizzariaDB.edmx">
+    <EntityDeploy Include="Models\QTallPizzariaDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QtallPizzariaDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>QTallPizzariaDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\QtallPizzariaDB.edmx.diagram">
-      <DependentUpon>QtallPizzariaDB.edmx</DependentUpon>
+    <Content Include="Models\QTallPizzariaDB.edmx.diagram">
+      <DependentUpon>QTallPizzariaDB.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="Views\Home\Cardapio.cshtml" />
@@ -288,6 +289,11 @@
     <Content Include="Views\Produto\Index.cshtml" />
     <Content Include="Views\EditarPaginas\Banner.cshtml" />
     <Content Include="Views\Produto\Edit.cshtml" />
+    <Content Include="Views\Galeria\Create.cshtml" />
+    <Content Include="Views\Galeria\Delete.cshtml" />
+    <Content Include="Views\Galeria\Details.cshtml" />
+    <Content Include="Views\Galeria\Edit.cshtml" />
+    <Content Include="Views\Galeria\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
