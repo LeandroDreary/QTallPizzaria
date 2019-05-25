@@ -808,3 +808,4 @@ C:\Users\etec\Documents\GitHub\QTallPizzaria\QTallPizzaria\QTallPizzaria\bin\ros
 C:\Users\etec\Documents\GitHub\QTallPizzaria\QTallPizzaria\QTallPizzaria\bin\roslyn\vbc.rsp
 C:\Users\etec\Documents\GitHub\QTallPizzaria\QTallPizzaria\QTallPizzaria\bin\roslyn\VBCSCompiler.exe
 C:\Users\etec\Documents\GitHub\QTallPizzaria\QTallPizzaria\QTallPizzaria\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\etec\Documents\GitHub\QTallPizzaria\QTallPizzaria\QTallPizzaria\obj\Debug\QTallPizzaria.csprojAssemblyReference.cache

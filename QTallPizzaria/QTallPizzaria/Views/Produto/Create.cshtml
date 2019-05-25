@@ -10,54 +10,59 @@
     @Html.AntiForgeryToken()
 
     <div class="container">
+
         <h4 class="my-4">PRODUTOS</h4>
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.Label("Nome do produto:", htmlAttributes: new { @class = "control-label" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @class = "form-control", @placeHolder = "Nome do produto" } })
-                @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="row">
+        <div class="card bg-light pl-5 pt-4">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
             <div class="form-group">
-                @Html.Label("Preço:", htmlAttributes: new { @class = "control-label" })
+                @Html.Label("Nome do produto:", htmlAttributes: new { @class = "control-label" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.preco, new { htmlAttributes = new { @class = "form-control preco", @type = "number", @placeHolder = "0,00" } })
-                    @Html.ValidationMessageFor(model => model.preco, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @class = "form-control", @placeHolder = "Nome do produto" } })
+                    @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    @Html.Label("Preço:", htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.preco, new { htmlAttributes = new { @class = "form-control preco", @type = "number", @placeHolder = "0,00" } })
+                        @Html.ValidationMessageFor(model => model.preco, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Tipo:", htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("IDTIPO", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.idTipo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="arquivoFoto">Foto do produto:</label>
+                <div class="col-md-10">
+                    <input type="file" name="arquivoFoto" />
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.Label("Tipo:", htmlAttributes: new { @class = "control-label" })
+                @Html.Label("Descrição:", htmlAttributes: new { @class = "control-label" })
                 <div class="col-md-10">
-                    @Html.DropDownList("IDTIPO", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.idTipo, "", new { @class = "text-danger" })
+                    @Html.TextAreaFor(model => model.descricao, htmlAttributes: new { @class = "form-control", @style = "width: 100%; height: 150px; resize: none;" })
+                    @Html.ValidationMessageFor(model => model.descricao, "", new { @class = "text-danger" })
                 </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="arquivoFoto">Foto do produto:</label>
-            <div class="col-md-10">
-                <input type="file" name="arquivoFoto" />
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.Label("Descrição:", htmlAttributes: new { @class = "control-label" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.descricao, htmlAttributes: new { @class = "form-control", @style = "width: 100%; height: 150px; resize: none;" })
-                @Html.ValidationMessageFor(model => model.descricao, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Criar Produto" class="btn btn-primary" />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Criar Produto" class="btn btn-primary" />
+                </div>
             </div>
         </div>
     </div>
+
 }
 <div class="container">
     <div>

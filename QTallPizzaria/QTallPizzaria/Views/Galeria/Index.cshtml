@@ -5,38 +5,42 @@
     Layout = "~/Views/Shared/Administrador.cshtml";
 }
 <div class="container">
+
     <h2 class="text-center my-4">Página Inicial</h2>
 
     <p>
-        @Html.ActionLink("Nova Foto", "Create")
+        @Html.ActionLink("Nova Foto", "Create", "Galeria", htmlAttributes: new { @class = "btn btn-dark" })
     </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.descricao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.img)
-            </th>
-            <th></th>
-        </tr>
+    <div class="card bg-light">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="text-center" scope="col">
+                        @Html.DisplayName("Descrição")
+                    </th>
+                    <th class="text-center" scope="col">
+                        @Html.DisplayName("Foto")
+                    </th>
+                    <th class="text-center" scope="col"></th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center align-middle" scope="col">
+                        @Html.DisplayFor(modelItem => item.descricao)
+                    </td>
+                    <td class="text-center align-middle" scope="col">
+                        <img src="@Html.DisplayFor(modelItem => item.img)" width="200px" />
+                    </td>
+                    <td class="text-center align-middle" scope="col">
+                        @Html.ActionLink("Editar", "Edit", new { id = item.idFoto } , new { @class = "btn btn-success" })
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.idFoto }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("Apagar", "Delete", new { id = item.idFoto }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.descricao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.img)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.idFoto }) |
-                    @Html.ActionLink("Detalhes", "Details", new { id = item.idFoto }) |
-                    @Html.ActionLink("Apagar", "Delete", new { id = item.idFoto })
-                </td>
-            </tr>
-        }
-
-    </table>
+        </table>
+    </div>
 </div>

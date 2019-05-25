@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -50,6 +51,14 @@ namespace QTallPizzaria.Controllers
         {
             if (ModelState.IsValid)
             {
+                HttpPostedFileBase file = Request.Files["arquivoFoto"];
+                if (file.ContentLength > 0)
+                {
+                    string _FileName = (DateTime.Now + Path.GetExtension(file.FileName)).ToString();
+                    _FileName = _FileName.Replace("/", "").Replace(":", "").Replace(" ", "");
+                    file.SaveAs(Path.Combine(Server.MapPath("~/img/Home/galeria/"), _FileName));
+                    foto.img = "../../img/Home/galeria/" + _FileName;
+                }
                 db.Foto.Add(foto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -82,6 +91,24 @@ namespace QTallPizzaria.Controllers
         {
             if (ModelState.IsValid)
             {
+                HttpPostedFileBase file = Request.Files["arquivoFoto"];
+                DBQtallEntities dbSearch = new DBQtallEntities();
+                if (file.ContentLength > 0)
+                {
+                    string _path = dbSearch.Foto.Find(foto.idFoto).img;
+                    if (_path != null)
+                    {
+                        _path = _path.Replace("../", "").Insert(0, "~/");
+                        if (System.IO.File.Exists(Server.MapPath(_path)))
+                            System.IO.File.Delete(Server.MapPath(_path));
+                    }
+                    string _FileName = (DateTime.Now + Path.GetExtension(file.FileName)).ToString();
+                    _FileName = _FileName.Replace("/", "").Replace(":", "").Replace(" ", "");
+                    file.SaveAs(Path.Combine(Server.MapPath("~/img/Home/galeria/"), _FileName));
+                    foto.img = "../../img/Home/galeria/" + _FileName;
+                }
+                else
+                    foto.img = dbSearch.Foto.Find(foto.idFoto).img;
                 db.Entry(foto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
