@@ -61,8 +61,9 @@ namespace QTallPizzaria.Controllers
 
         public ActionResult Galeria()
         {
+            var foto = db.Foto;
             ViewBag.HeaderBackground = db.banner.Find(3).diretorio;
-            return View();
+            return View(foto.ToList());
         }
 
         public ActionResult Sobre()
