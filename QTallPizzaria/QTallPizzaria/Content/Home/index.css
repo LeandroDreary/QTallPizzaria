@@ -96,6 +96,7 @@
     width: 100%;
     height: auto;
     height: 740px;
+    margin-bottom: -250px;
 }
 
     #header img {
@@ -196,8 +197,15 @@
 .banner{
     height: 0;
     z-index: 200;
+    margin-top: 250px;
+    margin-bottom: -250px;
 }
-@media screen and (max-width: 600px){
+
+.HeaderBackground{
+    z-index: -1;
+}
+
+@media screen and (max-width: 600px) {
     .banner{
         display: none;
     }
