@@ -192,3 +192,14 @@
             font-size: 23px;
         }
 }
+
+.banner{
+    height: 0;
+    z-index: 200;
+}
+@media screen and (max-width: 600px){
+    .banner{
+        display: none;
+    }
+}
+

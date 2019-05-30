@@ -4,16 +4,19 @@
     Layout = "~/Views/Shared/Home.cshtml";
     ViewBag.Frase = "O melhor pedaço do seu dia!";
     ViewBag.Telefone = "(14) 3641-4404";
+    ViewBag.Banner =  new HtmlString("<div class='container banner text-center'><h3 style='transform: rotate(5deg)' class='p-5 text-light bg-danger'>Rodizio de pizza todas as quintas feiras</h3><h3 style='transform: rotate(-5deg);transform:translateY(-100%)' class='p-5 text-light bg-success'>Rodizio de pizza todas as quintas feiras</h3></div>");
 }
 <link href="@Url.Content("~/Content/Home/index.css")"
       rel="stylesheet" />
+
+
 
 <div class="destaque">
     <h3 class="text-center font-weight-bold py-4">Destaques</h3>
     <div class="container">
         <hr />
     </div>
-    
+
     <div clas="carrosel">
         <div class="barra-verde">
             <div class="container">
@@ -50,7 +53,7 @@
         <h4 class="text-center">Pizzas</h4>
         <hr class="mx-5" />
         <div class="row">
-            @foreach(var item in ViewBag.PizzasSugestao)
+            @foreach (var item in ViewBag.PizzasSugestao)
             {
                 <div class="col-sm">
                     <div class="card my-4 mx-auto" style="width: 18rem;">
@@ -103,18 +106,12 @@
             }
         </div>
     </div>
-    <div>
-        <h3 class="text-center font-weight-bold py-4">Localização</h3>
-        <hr />
-        <div class="row bg-success">
-            <div class="col-md pt-3">
-                <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5064.849857892076!2d-48.552333474493885!3d-22.491709174357617!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa53391a65e6c109b!2sQ-tall+Pizzaria!5e0!3m2!1spt-BR!2sin!4v1551035296196" width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md">
-                <h4 class="pt-4 text-white">Horários de funcionamento:</h4>
-                <h5 class="text-white-50">Segunda a sabado das 18:00 horas as 00:00</h5>
-            </div>
-        </div>
+</div>
+<h3 class="text-center font-weight-bold py-4">Localização</h3>
+<hr />
+<div class="bg-success">
+    <div class="pt-3">
+        <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5064.849857892076!2d-48.552333474493885!3d-22.491709174357617!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa53391a65e6c109b!2sQ-tall+Pizzaria!5e0!3m2!1spt-BR!2sin!4v1551035296196" width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
 </div>
 
