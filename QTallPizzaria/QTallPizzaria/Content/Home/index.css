@@ -183,6 +183,7 @@
         #header img {
             height: 500px;
         }
+
         #header .fraseTema {
             top: 300px;
             font-size: 60px;
@@ -194,20 +195,27 @@
         }
 }
 
-.banner{
+.banner {
     height: 0;
     z-index: 200;
     margin-top: 250px;
     margin-bottom: -250px;
 }
+    .banner > h3 {
+        background-color: rgba(0,0,0,0.5);
+        font-size: 40px;
+        font-weight: bolder;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        border: 10px solid;
+        border-image: conic-gradient(green, green, green, red, red, red, green) 1;
+    }    
 
-.HeaderBackground{
+.HeaderBackground {
     z-index: -1;
 }
 
 @media screen and (max-width: 600px) {
-    .banner{
+    .banner {
         display: none;
     }
 }
-
