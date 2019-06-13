@@ -81,28 +81,28 @@ nav {
     background-color: RGBA(1,1,1,0.5);
 }
 
-    nav > div:first-child {
-        border-top: 5px solid #009045;
-        border-bottom: 5px solid #009045;
-    }
+nav > div:first-child {
+    border-top: 5px solid #009045;
+    border-bottom: 5px solid #009045;
+}
 
 .ulNav {
     padding: 15px 0;
     padding-left: 190px;
 }
 
-    .ulNav li {
-        display: inline-block;
-        color: #fff;
-        padding: 0px 10px;
-        font-weight: bolder;
-        font-size: 16px;
-    }
+.ulNav li {
+    display: inline-block;
+    color: #fff;
+    padding: 0px 10px;
+    font-weight: bolder;
+font-size: 16px;
+}
 
-        .ulNav li a {
-            color: #fff;
-            text-decoration: none;
-        }
+.ulNav li a {
+    color: #fff;
+    text-decoration: none;
+}
 
 .iconNav {
     position: absolute;
@@ -114,7 +114,7 @@ nav {
 
 .ulSide {
     position: fixed;
-    z-index: 7;
+    z-index: 11;
     height: 100%;
     width: 300px;
     background-color: RGBA(1,1,1,0.9);
@@ -139,6 +139,7 @@ nav {
     }
 
 .menuIcon {
+    z-index: 20;
     top: 60px;
 }
 
@@ -189,7 +190,7 @@ nav {
         right: 40px;
         top: 60px;
         height: auto;
-        z-index: 10;
+        z-index: 20;
         padding: 2px 5px;
         border-radius: 5px;
         background-color: RGBA(1,1,1,0.7);

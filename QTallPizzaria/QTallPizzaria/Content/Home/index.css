@@ -178,6 +178,7 @@
 @media only screen and (max-width: 600px) {
     #header {
         height: 500px;
+        margin-bottom: 0;
     }
 
         #header img {

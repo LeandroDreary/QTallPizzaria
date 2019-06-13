@@ -47,7 +47,7 @@
         {
             @:<div class="row">
             }
-            <div class="col-6">
+            <div class="col">
                 <div class="jumbotron">
                     <img width="100%" src="@item.Foto" />
                     <h1 class="display-4">@item.NomeProduto</h1>
@@ -206,7 +206,7 @@
                                 {
                                     @:<div class="bg-light mb-4 border-bottom row">
                                     }
-                                    <div class="col-6">
+                                    <div class="col">
                                         <div>
                                             <img src="@item.Foto" width="100%" />
                                             <h1 class="display text-center">@item.NomeProduto</h1>
@@ -226,3 +226,17 @@
                             </div>
                             <script src="@Url.Content("~/Scripts/Home/cardapio.js")">
                             </script>
+    <script>
+        document.body.onscroll = function () {
+            if (window.pageYOffset > 110) {
+                document.getElementById("nav").style.top = "0px";
+                document.getElementById("nav").style.backgroundColor = "rgb(30,30,30)";
+                document.querySelector(".ulNav").style.padding = "5px 0px 5px 50px";
+            }
+            else {
+                document.getElementById("nav").style.top = "40px";
+                document.getElementById("nav").style.backgroundColor = "rgba(1,1,1,0.5)";
+                document.querySelector(".ulNav").style.padding = "15px 0px 15px 190px";
+            }
+        }
+    </script>
