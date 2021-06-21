@@ -1,0 +1,209 @@
+﻿@using QTallPizzaria.Classes
+@{
+    ViewBag.Title = "Página Inicial";
+    Layout = "~/Views/Shared/Home.cshtml";
+    ViewBag.Frase = "O melhor pedaço do seu dia!";
+    ViewBag.Telefone = "(14) 3641-4404";
+    ViewBag.Banner =  new HtmlString("<div class='container banner text-center'><h3 class='p-4 text-light'>Rodizio todas as Quintas-Feiras</h3></div>");
+}
+<link href="@Url.Content("~/Content/Home/index.css")"
+      rel="stylesheet" />
+
+
+
+<div class="destaque">
+    <h3 class="text-center font-weight-bold py-4">Destaques</h3>
+    <div class="container">
+        <hr />
+    </div>
+    <div clas="carrosel">
+        <div class="barra-verde">
+            <div class="container">
+                <div class="infoPizza">
+                    <h3 class="nomepizza">Pizza de Calabresa</h3>
+                    <h3 class="preco">POR R$20,00</h3>
+                </div>
+            </div>
+        </div>
+        <svg class="destaqueImage" viewBox="0 0 100 100">
+            <clipPath id="clip-path">
+                <path id="forma" d="M0,0 0,0 40,0 100,65 0,65  z">
+            </clipPath>
+            <image clip-path="url(#clip-path)" xlink:href="@ViewBag.PizzasDestaque[0].foto" alt="Image" height="100" width="100" class="svg__image">
+        </svg>
+        <div class="infoPizzaCel">
+            <h3 class="nomepizza">@ViewBag.PizzasDestaque[0].nome</h3>
+            <h3 class="preco">POR @ViewBag.PizzasDestaque[0].preco</h3>
+        </div>
+        <div class="bolas">
+            <div class="bola" id="active" onclick="changeInfo(0,this)"></div>
+            <div class="bola" onclick="changeInfo(1,this)"></div>
+            <div class="bola" onclick="changeInfo(2,this)"></div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <hr />
+    <div class="position-relative" style="height:400px">
+        <img class="position-absolute" src="http://fotografiatododia.com.br/wp-content/uploads/2018/07/reacao-a-palavra-bonito.jpg" style="z-index:-10;width: 100%;height: 400px; object-fit:cover" />
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col-9">
+                <p class="text-justify">
+                    Promova eventos e traga sua família para usufruir de nosso vasto cardápio, além de uma ambientação agradável e incrivel, lugar perfeito para confraternizações, festas de aniversários ou cerimônias comemorativas,
+                    trazemos sempre novidades em nossas opções de menu para a satisfação de seu paladar. Use nosso Disk-Deliver, onde priorizamos uma entrega rápida e de qualidade.
+                </p>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="row border pt-4 rounded border-dark">
+        <div class="col">
+            <div class="">
+                <p class="text-justify rounded border border-danger p-3 pt-1 bg-dark text-light">
+                    Promova eventos e traga sua família para usufruir de nosso vasto cardápio, além de uma ambientação agradável e incrivel, lugar perfeito para confraternizações, festas de aniversários ou cerimônias comemorativas,
+                    trazemos sempre novidades em nossas opções de menu para a satisfação de seu paladar. Use nosso Disk-Deliver, onde priorizamos uma entrega rápida e de qualidade.
+                </p>
+            </div>
+        </div>
+        <div class="col-md align-self-sm-center">
+            <img width="100%" src="http://qtalpizzaria.com.br/partes/promocao.png" />
+        </div>
+    </div>
+
+    <hr />
+    <div class="bg-light py-5 card">
+        <h3 class="text-center font-weight-bold pb-3">Sugestões</h3>
+        <hr class="mx-5" />
+        <h4 class="text-center">Pizzas</h4>
+        <hr class="mx-5" />
+        <div class="row">
+            @foreach (var item in ViewBag.PizzasSugestao)
+            {
+                <div class="col-sm">
+                    <div class="card my-4 mx-auto" style="width: 18rem;">
+                        <img src="@item.foto" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.nome</h5>
+                            <p class="card-text">@LimitarString.Retorno(item.descricao, 100)</p>
+                            <a href="#" class="btn btn-primary">R$ @item.preco</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+
+        <h4 class="text-center">Lanches</h4>
+        <hr class="mx-5" />
+        <div class="row">
+
+            @foreach (var item in ViewBag.LanchesSugestao)
+            {
+                <div class="col-sm">
+                    <div class="card my-4 mx-auto" style="width: 18rem;">
+                        <img src="@item.foto" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.nome</h5>
+                            <p class="card-text">@LimitarString.Retorno(item.descricao, 100)</p>
+                            <a href="#" class="btn btn-primary">R$ @item.preco</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <h4 class="text-center">Bebidas</h4>
+        <hr class="mx-5" />
+        <div class="row">
+            @foreach (var item in ViewBag.BebidasSugestao)
+            {
+                <div class="col-sm">
+                    <div class="card my-4 mx-auto" style="width: 18rem;">
+                        <img src="@item.foto" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.nome</h5>
+                            <p class="card-text">@LimitarString.Retorno(item.descricao, 100)</p>
+                            <a href="#" class="btn btn-primary">R$ @item.preco</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <h3 class="text-center font-weight-bold pt-5 pb-3">O que as pessoas dizem?</h3>
+    <hr class="mx-5" />
+    <div class="row">
+        <div class="col text-center">
+            <div class="py-4">
+                <div class="py-3 text-center">
+                    <img class="rounded-circle" style="height: 100px; width: 100px; object-fit: cover" src="https://osegredo.com.br/wp-content/uploads/2018/02/pessoas-que-superam-a-depress%C3%A3o-830x450.jpg" />
+                </div>
+                <div class="px-4">
+                    <p class="text-justify">
+                        Bom dia migus, hoje estou aqui para fazer um comentário positivo sobre esta incrível pizzaria
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col text-center">
+            <div class="py-4">
+                <div class="py-3 text-center">
+                    <img class="rounded-circle" style="height: 100px; width: 100px; object-fit: cover" src="https://osegredo.com.br/wp-content/uploads/2018/02/pessoas-que-superam-a-depress%C3%A3o-830x450.jpg" />
+                </div>
+                <div class="px-4">
+                    <p class="text-justify">
+                        Bom dia migus, hoje estou aqui para fazer um comentário positivo sobre esta incrível pizzaria
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col text-center">
+            <div class="py-4">
+                <div class="py-3 text-center">
+                    <img class="rounded-circle" style="height: 100px; width: 100px; object-fit: cover" src="https://osegredo.com.br/wp-content/uploads/2018/02/pessoas-que-superam-a-depress%C3%A3o-830x450.jpg" />
+                </div>
+                <div class="px-4">
+                    <p class="text-justify">
+                        Bom dia migus, hoje estou aqui para fazer um comentário positivo sobre esta incrível pizzaria
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h3 class="text-center font-weight-bold py-4">Localização</h3>
+<hr />
+<div class="bg-success">
+    <div class="pt-3">
+        <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5064.849857892076!2d-48.552333474493885!3d-22.491709174357617!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa53391a65e6c109b!2sQ-tall+Pizzaria!5e0!3m2!1spt-BR!2sin!4v1551035296196" width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+</div>
+
+<script type="text/javascript">
+        var img = ["@ViewBag.PizzasDestaque[0].foto","@ViewBag.PizzasDestaque[1].foto","@ViewBag.PizzasDestaque[2].foto"];
+        var NomePizza = ["@ViewBag.PizzasDestaque[0].nome", "@ViewBag.PizzasDestaque[1].nome", "@ViewBag.PizzasDestaque[2].nome"];
+        var preco = ["POR R$ @ViewBag.PizzasDestaque[0].preco", "POR R$ @ViewBag.PizzasDestaque[1].preco", "POR R$ @ViewBag.PizzasDestaque[2].preco"];
+
+        function changeInfo(i, isso) {
+            var pizzaNome = document.getElementsByClassName("nomepizza");
+            pizzaNome[0].innerHTML = NomePizza[i];
+            pizzaNome[1].innerHTML = NomePizza[i];
+            document.querySelector(".svg__image").setAttribute("src", img[i]);
+            document.querySelector(".svg__image").setAttribute("xlink:href", img[i]);
+            var pizzaPreco = document.getElementsByClassName("preco");
+            pizzaPreco[0].innerHTML = preco[i];
+            pizzaPreco[1].innerHTML = preco[i];
+            var bolas = document.getElementsByClassName("bola");
+            for (var i = 0; i < bolas.length; i++) {
+                bolas[i].id = "";
+            }
+            isso.id = "active";
+        }
+</script>
+<script src="@Url.Content("~/Scripts/Home/Index.js")">
+</script>

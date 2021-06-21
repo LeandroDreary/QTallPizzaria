@@ -1,0 +1,36 @@
+﻿@model QTallPizzaria.Models.Foto
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/Administrador.cshtml";
+}
+<div class="container">
+    <h2>Detalhes</h2>
+
+    <div>
+        <h4>Foto</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.descricao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.descricao)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.img)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.img)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.idFoto }) |
+        @Html.ActionLink("Voltar", "Index")
+    </p>
+    </div>

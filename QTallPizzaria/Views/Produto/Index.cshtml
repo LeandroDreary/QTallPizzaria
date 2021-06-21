@@ -1,0 +1,80 @@
+﻿@using QTallPizzaria.Classes
+@model IEnumerable<QTallPizzaria.Models.Produto>
+
+@{
+                /**/
+
+                ViewBag.Title = "Index";
+                Layout = "~/Views/Shared/Administrador.cshtml";
+}
+
+<div class="container">
+    <h3 class="my-5 text-dark text-sm-center font-weight-bold">Todos os Produtos</h3>
+    <hr />
+    <p class="btn btn-primary">
+        @Html.ActionLink("Novo Produto", "Create", "produtos", new { @class = "text-white" })
+    </p>
+    @using (Html.BeginForm("Search", "Produto", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="bg-dark p-3">
+            <input type="text" class="form-control col-md-2 float-left mr-3" placeholder="Pesquisar" name="pesquisa" />
+            <input class="float-left btn btn-primary" type="submit" value="Enviar" />
+            <div class="clearfix">...</div>
+        </div>
+    }
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="text-center" scope="col">
+                        Nome do Produto
+                    </th>
+                    <th class="text-center" scope="col">
+                        Preço
+                    </th>
+                    <th class="text-center" scope="col">
+                        Foto
+                    </th>
+                    <th class="text-center" scope="col">
+                        Descrição
+                    </th>
+                    <th class="text-center" scope="col">
+                        Tipo
+                    </th>
+                    <th class="text-center" scope="col">
+                        Ações
+                    </th>
+                </tr>
+            </thead>
+        </table>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card m-3">
+                        <div class="bg-danger text-light p-2 text-center align-middle font-weight-bold">
+                            <h3>@Html.DisplayFor(modelItem => item.nome)</h3>
+                        </div>
+                        <div class="text-center text-success bg-light border-bottom pt-2 align-middle">
+                            <h5>R$@Html.DisplayFor(modelItem => item.preco)</h5>
+                        </div>
+                        <div class="text-center p-3 align-middle">
+                            <img width="100%" src="@Html.DisplayFor(modelItem => item.foto)" />
+                        </div>
+                        <div class="text-center p-2 text-justify">
+                            @LimitarString.Retorno(item.descricao, 150)
+                        </div>
+                        <div class="text-info pt-2 bg-light border-top border-bottom text-center align-middle">
+                            <h5>@Html.DisplayFor(modelItem => item.TipoProduto.nomeTipo)</h5>
+                        </div>
+                        <div class="text-center p-3 align-middle">
+                            @Html.ActionLink("Editar", "Edit", new { id = item.idProduto }, new { @class = "btn btn-outline-success" })
+                            @Html.ActionLink("Detalhes", "Details", new { id = item.idProduto }, new { @class = "btn btn-outline-warning" })
+                            @Html.ActionLink("Apagar", "Delete", new { id = item.idProduto }, new { @class = "btn btn-outline-danger" })
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+   
+</div>

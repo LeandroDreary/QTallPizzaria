@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBQtallModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="banner">
+          <Key>
+            <PropertyRef Name="idBanner" />
+          </Key>
+          <Property Name="idBanner" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="diretorio" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Foto">
+          <Key>
+            <PropertyRef Name="idFoto" />
+          </Key>
+          <Property Name="idFoto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descricao" Type="varchar" MaxLength="3000" />
+          <Property Name="img" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="idProduto" />
+          </Key>
+          <Property Name="idProduto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="70" />
+          <Property Name="preco" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="descricao" Type="varchar" MaxLength="3000" />
+          <Property Name="foto" Type="varchar" MaxLength="100" />
+          <Property Name="idTipo" Type="int" />
+          <Property Name="SUGESTAO" Type="bit" />
+          <Property Name="DESTAQUES" Type="bit" />
+          <Property Name="DATAMODIFICACAOSUGESTAO" Type="datetime" />
+          <Property Name="DATAMODIFICACAODESTAQUE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TipoProduto">
+          <Key>
+            <PropertyRef Name="idTipo" />
+          </Key>
+          <Property Name="idTipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomeTipo" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <Association Name="FK__Produto__idTipo__398D8EEE">
+          <End Role="TipoProduto" Type="Self.TipoProduto" Multiplicity="0..1" />
+          <End Role="Produto" Type="Self.Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoProduto">
+              <PropertyRef Name="idTipo" />
+            </Principal>
+            <Dependent Role="Produto">
+              <PropertyRef Name="idTipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBQtallModelStoreContainer">
+          <EntitySet Name="banner" EntityType="Self.banner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Foto" EntityType="Self.Foto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produto" EntityType="Self.Produto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoProduto" EntityType="Self.TipoProduto" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Produto__idTipo__398D8EEE" Association="Self.FK__Produto__idTipo__398D8EEE">
+            <End Role="TipoProduto" EntitySet="TipoProduto" />
+            <End Role="Produto" EntitySet="Produto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBQtallModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="banner">
+          <Key>
+            <PropertyRef Name="idBanner" />
+          </Key>
+          <Property Name="idBanner" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="diretorio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Foto">
+          <Key>
+            <PropertyRef Name="idFoto" />
+          </Key>
+          <Property Name="idFoto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descricao" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="img" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="idProduto" />
+          </Key>
+          <Property Name="idProduto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="preco" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="descricao" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="foto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idTipo" Type="Int32" />
+          <Property Name="SUGESTAO" Type="Boolean" />
+          <Property Name="DESTAQUES" Type="Boolean" />
+          <Property Name="DATAMODIFICACAOSUGESTAO" Type="DateTime" Precision="3" />
+          <Property Name="DATAMODIFICACAODESTAQUE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TipoProduto" Relationship="Self.FK__Produto__idTipo__398D8EEE" FromRole="Produto" ToRole="TipoProduto" />
+        </EntityType>
+        <EntityType Name="TipoProduto">
+          <Key>
+            <PropertyRef Name="idTipo" />
+          </Key>
+          <Property Name="idTipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomeTipo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Produto" Relationship="Self.FK__Produto__idTipo__398D8EEE" FromRole="TipoProduto" ToRole="Produto" />
+        </EntityType>
+        <Association Name="FK__Produto__idTipo__398D8EEE">
+          <End Role="TipoProduto" Type="Self.TipoProduto" Multiplicity="0..1" />
+          <End Role="Produto" Type="Self.Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoProduto">
+              <PropertyRef Name="idTipo" />
+            </Principal>
+            <Dependent Role="Produto">
+              <PropertyRef Name="idTipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBQtallEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="banner" EntityType="Self.banner" />
+          <EntitySet Name="Foto" EntityType="Self.Foto" />
+          <EntitySet Name="Produto" EntityType="Self.Produto" />
+          <EntitySet Name="TipoProduto" EntityType="Self.TipoProduto" />
+          <AssociationSet Name="FK__Produto__idTipo__398D8EEE" Association="Self.FK__Produto__idTipo__398D8EEE">
+            <End Role="TipoProduto" EntitySet="TipoProduto" />
+            <End Role="Produto" EntitySet="Produto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBQtallModelStoreContainer" CdmEntityContainer="DBQtallEntities">
+          <EntitySetMapping Name="banner">
+            <EntityTypeMapping TypeName="DBQtallModel.banner">
+              <MappingFragment StoreEntitySet="banner">
+                <ScalarProperty Name="idBanner" ColumnName="idBanner" />
+                <ScalarProperty Name="diretorio" ColumnName="diretorio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Foto">
+            <EntityTypeMapping TypeName="DBQtallModel.Foto">
+              <MappingFragment StoreEntitySet="Foto">
+                <ScalarProperty Name="idFoto" ColumnName="idFoto" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="img" ColumnName="img" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produto">
+            <EntityTypeMapping TypeName="DBQtallModel.Produto">
+              <MappingFragment StoreEntitySet="Produto">
+                <ScalarProperty Name="idProduto" ColumnName="idProduto" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="preco" ColumnName="preco" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="idTipo" ColumnName="idTipo" />
+                <ScalarProperty Name="SUGESTAO" ColumnName="SUGESTAO" />
+                <ScalarProperty Name="DESTAQUES" ColumnName="DESTAQUES" />
+                <ScalarProperty Name="DATAMODIFICACAOSUGESTAO" ColumnName="DATAMODIFICACAOSUGESTAO" />
+                <ScalarProperty Name="DATAMODIFICACAODESTAQUE" ColumnName="DATAMODIFICACAODESTAQUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoProduto">
+            <EntityTypeMapping TypeName="DBQtallModel.TipoProduto">
+              <MappingFragment StoreEntitySet="TipoProduto">
+                <ScalarProperty Name="idTipo" ColumnName="idTipo" />
+                <ScalarProperty Name="nomeTipo" ColumnName="nomeTipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

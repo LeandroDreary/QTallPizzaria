@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBQtallModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="banner">
+    <Key>
+      <PropertyRef Name="idBanner" />
+    </Key>
+    <Property Name="idBanner" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="diretorio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Foto">
+    <Key>
+      <PropertyRef Name="idFoto" />
+    </Key>
+    <Property Name="idFoto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descricao" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="img" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Produto">
+    <Key>
+      <PropertyRef Name="idProduto" />
+    </Key>
+    <Property Name="idProduto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="preco" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="descricao" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="foto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idTipo" Type="Int32" />
+    <Property Name="SUGESTAO" Type="Boolean" />
+    <Property Name="DESTAQUES" Type="Boolean" />
+    <Property Name="DATAMODIFICACAOSUGESTAO" Type="DateTime" Precision="3" />
+    <Property Name="DATAMODIFICACAODESTAQUE" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="TipoProduto" Relationship="Self.FK__Produto__idTipo__398D8EEE" FromRole="Produto" ToRole="TipoProduto" />
+  </EntityType>
+  <EntityType Name="TipoProduto">
+    <Key>
+      <PropertyRef Name="idTipo" />
+    </Key>
+    <Property Name="idTipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomeTipo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Produto" Relationship="Self.FK__Produto__idTipo__398D8EEE" FromRole="TipoProduto" ToRole="Produto" />
+  </EntityType>
+  <Association Name="FK__Produto__idTipo__398D8EEE">
+    <End Role="TipoProduto" Type="Self.TipoProduto" Multiplicity="0..1" />
+    <End Role="Produto" Type="Self.Produto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProduto">
+        <PropertyRef Name="idTipo" />
+      </Principal>
+      <Dependent Role="Produto">
+        <PropertyRef Name="idTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBQtallEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="banner" EntityType="Self.banner" />
+    <EntitySet Name="Foto" EntityType="Self.Foto" />
+    <EntitySet Name="Produto" EntityType="Self.Produto" />
+    <EntitySet Name="TipoProduto" EntityType="Self.TipoProduto" />
+    <AssociationSet Name="FK__Produto__idTipo__398D8EEE" Association="Self.FK__Produto__idTipo__398D8EEE">
+      <End Role="TipoProduto" EntitySet="TipoProduto" />
+      <End Role="Produto" EntitySet="Produto" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

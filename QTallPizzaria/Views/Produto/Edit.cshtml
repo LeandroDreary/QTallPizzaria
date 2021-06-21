@@ -1,0 +1,112 @@
+﻿@model QTallPizzaria.Models.Produto
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Administrador.cshtml";
+}
+
+<div class="container">
+    @using (Html.BeginForm("Edit", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        
+    <div class="form-horizontal">
+        <h4 class="my-4">PRODUTOS</h4>
+        <hr />
+        <div class="card bg-light p-4">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.idProduto)
+
+            <div class="form-group">
+                @Html.Label("Nome do produto:", htmlAttributes: new { @class = "control-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    @Html.Label("Preço:", htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        <div width="100px">
+                            @Html.EditorFor(model => model.preco, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.preco, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Tipo:", htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("IDTIPO", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.idTipo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Foto:", htmlAttributes: new { @class = "control-label" })
+                <div class="col-md-10">
+                    <input type="file" name="arquivoFoto" />
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.Label("Descrição:", htmlAttributes: new { @class = "control-label" })
+                <div>
+                    @Html.TextAreaFor(model => model.descricao, htmlAttributes: new { @class = "form-control", @style = " width: 100%; height: 150px; resize: none;" })
+                    @Html.ValidationMessageFor(model => model.descricao, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @if (Model.idTipo == 1)
+            {
+
+                <div class="form-group">
+                    @Html.Label("Adicionar a sujestão:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.SUGESTAO)
+                            @Html.ValidationMessageFor(model => model.SUGESTAO, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Adicionar aos destaques:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.DESTAQUES)
+                            @Html.ValidationMessageFor(model => model.DESTAQUES, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (Model.idTipo == 2 || Model.idTipo == 3)
+            {
+                <div class="form-group">
+                    @Html.Label("Adicionar a sujestão:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.SUGESTAO)
+                            @Html.ValidationMessageFor(model => model.SUGESTAO, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Salvar" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+
+    <div>
+        @Html.ActionLink("Voltar", "Index")
+    </div>
+</div>
